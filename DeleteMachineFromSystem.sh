@@ -17,7 +17,7 @@ cd
 rm -rf $defaultRepo
 git clone https://AskLab:student123@github.com/AskLab/Default.git $defaultRepo
 cp -f $defaultRepo/interfaces /etc/network/
-sed 's/$ip//' $repo/ipDatabase
+sed -i 's/$ip//' $repo/ipDatabase
 
 #Saving latest address Database
 cd $defaultRepo
@@ -28,7 +28,6 @@ git push -u origin master
 #Deleting branch of this machine
 cd $repo
 git push origin --delete $var
-	
+
 rm -rf $defaultRepo
 rm -rf $repo
-fi
