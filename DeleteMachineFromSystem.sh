@@ -9,15 +9,15 @@ currentTime=$(date +"%m-%d-%y_%H%M")
 echo "Which interface you want to reset?"
 read interfaceName
 
-ip=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
-
+ip=$(/sbin/ifconfig $interfaceName | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+echo "$ip"
 #Downloading main group options
 echo "Removing machine from system"
 cd
 rm -rf $defaultRepo
 git clone https://AskLab:student123@github.com/AskLab/Default.git $defaultRepo
 cp -f $defaultRepo/interfaces /etc/network/
-sed -i 's/$ip//' $repo/ipDatabase
+sed -i '/'$ip'/d' $defaultRepo/$addressDatabase
 
 #Saving latest address Database
 cd $defaultRepo

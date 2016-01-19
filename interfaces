@@ -1,4 +1,4 @@
-This is the default:
+# This is the default:
 # The loopback network interface
 auto lo
 iface lo inet loopback
