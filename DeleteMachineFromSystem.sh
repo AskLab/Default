@@ -17,10 +17,8 @@ cd
 rm -rf $defaultRepo
 git clone https://AskLab:student123@github.com/AskLab/Default.git $defaultRepo
 cp -f $defaultRepo/interfaces /etc/network/
-if [ $interfaceName != "eth0" ]
-then
-	ifconfig $interfaceName down
-fi	
+
+ifconfig $interfaceName down
 /etc/init.d/networking restart
 sed -i '/'$ip'/d' $defaultRepo/$addressDatabase
 
