@@ -21,7 +21,6 @@ rm -rf $defaultRepo
 git clone https://AskLab:student123@github.com/AskLab/Default.git $defaultRepo
 echo $ip
 sed -i '/'$ip'/d' $defaultRepo/$addressDatabase
-read key
 
 cd $repo
 git checkout $var
@@ -34,7 +33,6 @@ git commit -m "$currentTime"
 git push -u origin $var
 
 #Saving latest address Database
-read key
 cd $defaultRepo
 git add $addressDatabase
 git commit -m "$var"
